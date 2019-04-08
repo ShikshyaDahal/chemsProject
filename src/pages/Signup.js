@@ -8,24 +8,24 @@ import {
 } from 'react-native';
 
 import Logo from '../components/Logo';
-import Form from '../components/Form';
+import SignupForm from '../components/SignupForm';
 
 import {Actions} from 'react-native-router-flux';
 
 export default class Signup extends Component {
 
-  goBack() {
-      Actions.pop();
+  login() {
+      Actions.login();
   }
 
 	render() {
 		return(
 			<View style={styles.container}>
 				<Logo/>
-				<Form type="Signup"/>
+				<SignupForm type="Signup"/>
 				<View style={styles.signupTextCont}>
 					<Text style={styles.signupText}>Already have an account?</Text>
-					<TouchableOpacity onPress={this.goBack}><Text style={styles.signupButton}> Sign in</Text></TouchableOpacity>
+                <TouchableOpacity onPress={this.login}><Text style={styles.signupButton}> Login</Text></TouchableOpacity>
 				</View>
 			</View>	
 			)

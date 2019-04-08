@@ -7,7 +7,7 @@ import {
   TouchableOpacity 
 } from 'react-native';
 
-export default class Form extends Component{
+export default class SignupForm extends Component{
 
 	render(){
 		return(
@@ -18,8 +18,30 @@ export default class Form extends Component{
               placeholderTextColor = "#ffffff"
               selectionColor="#fff"
               keyboardType="email-address"
+              onSubmitEditing={()=> this.username.focus()}
+              />
+
+            <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="Username"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="default"
+              ref={(input) => this.username = input}
+              onSubmitEditing={()=> this.phone.focus()}
+              />
+
+
+            <TextInput style={styles.inputBox} 
+              underlineColorAndroid='rgba(0,0,0,0)' 
+              placeholder="Phone"
+              placeholderTextColor = "#ffffff"
+              selectionColor="#fff"
+              keyboardType="phone-pad"
+              ref={(input) => this.phone = input}
               onSubmitEditing={()=> this.password.focus()}
               />
+
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="Password"
@@ -27,6 +49,8 @@ export default class Form extends Component{
               placeholderTextColor = "#ffffff"
               ref={(input) => this.password = input}
               />  
+
+
            <TouchableOpacity style={styles.button}>
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
