@@ -4,8 +4,13 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity 
+  TouchableOpacity ,
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
+
+var DismissKeyboard = require('dismissKeyboard'); // Require React Native's utility library.
+
 
 export default class Form extends Component{
 
@@ -37,6 +42,7 @@ export default class Form extends Component{
   }
 	render(){
 		return(
+<<<<<<< HEAD
 			<View style={styles.container}>
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -60,6 +66,32 @@ export default class Form extends Component{
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
   		</View>
+=======
+			
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <View style={styles.container}>
+            <TextInput style={styles.inputBox} 
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Email"
+                placeholderTextColor = "#ffffff"
+                selectionColor="#fff"
+                keyboardType="email-address"
+                onSubmitEditing={()=> this.password.focus()}
+                />
+            <TextInput style={styles.inputBox} 
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Password"
+                secureTextEntry={true}
+                placeholderTextColor = "#ffffff"
+                ref={(input) => this.password = input}
+                />  
+             <TouchableOpacity style={styles.button}>
+               <Text style={styles.buttonText}>{this.props.type}</Text>
+             </TouchableOpacity>    
+            </View>
+           </TouchableWithoutFeedback>
+  		
+>>>>>>> 9531a131e738ceaa359f80e489930653f929e55e
 			)
 	}
 }
@@ -73,6 +105,7 @@ const styles = StyleSheet.create({
 
   inputBox: {
     width:300,
+    height:40,
     backgroundColor:'rgba(255, 255,255,0.2)',
     borderRadius: 25,
     paddingHorizontal:16,
