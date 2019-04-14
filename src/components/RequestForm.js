@@ -1,34 +1,46 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Button, Picker, Alert ,TextInput,Image} from "react-native";
+import { Platform, StyleSheet, TouchableOpacity,View, Button, Picker, Alert ,TextInput,Image,Text} from "react-native";
 import ImagePicker from 'react-native-image-picker';
 
 import { FormLabel } from 'react-native-elements'
+
+
+var options = {
+  title: 'Select a photo',
+ takePhotoButtonTitle:'Take a photo',
+ chooseFromLibraryButtonTitle: 'Choose from gallery',
+ quality:1
+};
+
 export default class RequestForm extends Component{
     constructor(){
         super();
-        // this.state={
-        //     language : ''
-        // }
-        // state = {
-        //     photo: null,
-        //   };
+        this.state={
+          imageSource:null,
+        }
+        
       }
-
-      
-    
-      handleChoosePhoto = () => {
-        const options = {
-          noData: true,
-        };
-        ImagePicker.launchImageLibrary(options, response => {
-          if (response.uri) {
-            this.setState({ photo: response });
+      selectphoto(){
+        ImagePicker.showImagePicker(options, (response) => {
+          console.log('Response = ', response);
+        
+          if (response.didCancel) {
+            console.log('User cancelled image picker');
+          } else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+          } else if (response.customButton) {
+            console.log('User tapped custom button: ', response.customButton);
+          } else {
+            const source = { uri: response.uri };   
+            this.setState({
+              imageSource: source,
+            });
           }
         });
-      };
-        
+      }
+
 	render(){
-        const { photo } = this.state;
+       
 
 		return(
             <View style={styles.container}>
@@ -51,16 +63,14 @@ export default class RequestForm extends Component{
             <Picker.Item label="Water" value="js" />
             </Picker> */}
 
-            {/* photo && (
-          <Image
-            source={{ uri: photo.uri }}
-            style={{ width: 300, height: 300 }}
-          />
-        )} */}
-        <Button title="Choose Photo" onPress={this.handleChoosePhoto} />
+            <Image  source={this.state.imageSource !=null ? this.state.imageSource :
+           require('../images/not_available.png')}/>
+            <TouchableOpacity style={styles.buttonText} onPress={this.selectphoto.bind(this)}>
+              <Text style={styles.inputBox}>Select</Text>
+            </TouchableOpacity>
 
-      
-            </View>
+              </View>
+
       
 			)
 	}
