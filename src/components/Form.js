@@ -39,10 +39,25 @@ export default class Form extends Component{
     let collection={}
     collection.email=this.state.email,
     collection.password=this.state.password
+    console.warn(collection)
+
+//     var url = 'api';
+
+// fetch(url, {
+//   method: 'POST',
+//   body: JSON.stringify(collection), 
+//   headers:{
+//     'Content-Type': 'application/json'
+//   }
+// }).then(res => res.json())
+// .then(response => console.log('Success:', JSON.stringify(response)))
+// .catch(error => console.error('Error:', error));
   }
 	render(){
 		return(
-<<<<<<< HEAD
+
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+
 			<View style={styles.container}>
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -66,32 +81,7 @@ export default class Form extends Component{
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
   		</View>
-=======
-			
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-          <View style={styles.container}>
-            <TextInput style={styles.inputBox} 
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Email"
-                placeholderTextColor = "#ffffff"
-                selectionColor="#fff"
-                keyboardType="email-address"
-                onSubmitEditing={()=> this.password.focus()}
-                />
-            <TextInput style={styles.inputBox} 
-                underlineColorAndroid='rgba(0,0,0,0)' 
-                placeholder="Password"
-                secureTextEntry={true}
-                placeholderTextColor = "#ffffff"
-                ref={(input) => this.password = input}
-                />  
-             <TouchableOpacity style={styles.button}>
-               <Text style={styles.buttonText}>{this.props.type}</Text>
-             </TouchableOpacity>    
-            </View>
-           </TouchableWithoutFeedback>
-  		
->>>>>>> 9531a131e738ceaa359f80e489930653f929e55e
+      </TouchableWithoutFeedback>
 			)
 	}
 }
