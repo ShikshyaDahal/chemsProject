@@ -9,6 +9,32 @@ import {
 
 export default class Form extends Component{
 
+  constructor(){
+
+    super();
+    this.state={
+      email:'',
+      password:''
+    }
+  }
+  updateValue(text,field){
+    // if(field=='email'){
+    //   this.setState({
+    //     email:text,
+    //   })
+    // }
+    // else if(field=='password'){
+    //   this.setState({
+    //     password:text,
+    //   })
+    // }
+    this.setState({[field]:text});
+  }
+  submit(){
+    let collection={}
+    collection.email=this.state.email,
+    collection.password=this.state.password
+  }
 	render(){
 		return(
 			<View style={styles.container}>
@@ -19,6 +45,7 @@ export default class Form extends Component{
               selectionColor="#fff"
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
+              onChangeText={(text) => this.updateValue(text,'email')}
               />
           <TextInput style={styles.inputBox} 
               underlineColorAndroid='rgba(0,0,0,0)' 
@@ -26,8 +53,10 @@ export default class Form extends Component{
               secureTextEntry={true}
               placeholderTextColor = "#ffffff"
               ref={(input) => this.password = input}
+              onChangeText={(text) => this.updateValue(text,'password')}
+
               />  
-           <TouchableOpacity style={styles.button}>
+           <TouchableOpacity style={styles.button} onPress={()=>this.submit()}>
              <Text style={styles.buttonText}>{this.props.type}</Text>
            </TouchableOpacity>     
   		</View>
