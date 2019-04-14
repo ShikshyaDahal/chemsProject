@@ -34,7 +34,7 @@ export default class Form extends Component{
                 placeholderTextColor = "#ffffff"
                 ref={(input) => this.password = input}
                 />  
-             <TouchableOpacity style={styles.button}>
+             <TouchableOpacity onPress={this.signup} style={styles.button}>
                <Text style={styles.buttonText}>{this.props.type}</Text>
              </TouchableOpacity>    
             </View>
