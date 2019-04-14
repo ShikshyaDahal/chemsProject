@@ -14,6 +14,36 @@ var DismissKeyboard = require('dismissKeyboard'); // Require React Native's util
 
 export default class Form extends Component {
 
+
+	render(){
+		return(
+			
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+          <View style={styles.container}>
+            <TextInput style={styles.inputBox} 
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Email"
+                placeholderTextColor = "#ffffff"
+                selectionColor="#fff"
+                keyboardType="email-address"
+                onSubmitEditing={()=> this.password.focus()}
+                />
+            <TextInput style={styles.inputBox} 
+                underlineColorAndroid='rgba(0,0,0,0)' 
+                placeholder="Password"
+                secureTextEntry={true}
+                placeholderTextColor = "#ffffff"
+                ref={(input) => this.password = input}
+                />  
+             <TouchableOpacity onPress={this.signup} style={styles.button}>
+               <Text style={styles.buttonText}>{this.props.type}</Text>
+             </TouchableOpacity>    
+            </View>
+           </TouchableWithoutFeedback>
+  		
+			)
+	}
+
   constructor() {
 
     super();
@@ -60,38 +90,7 @@ export default class Form extends Component {
 
 
   }
-  render() {
-    return (
-
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-
-        <View style={styles.container}>
-          <TextInput style={styles.inputBox}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Email"
-            placeholderTextColor="#ffffff"
-            selectionColor="#fff"
-            keyboardType="email-address"
-            onSubmitEditing={() => this.password.focus()}
-            onChangeText={(text) => this.updateValue(text, 'email')}
-          />
-          <TextInput style={styles.inputBox}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholder="Password"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            ref={(input) => this.password = input}
-            onChangeText={(text) => this.updateValue(text, 'password')}
-
-          />
-          <TouchableOpacity style={styles.button} onPress={() => this.submit()}>
-            <Text style={styles.buttonText}>{this.props.type}</Text>
-          </TouchableOpacity>
-        </View>
-      </TouchableWithoutFeedback>
-    )
-  }
-}
+  
 
 const styles = StyleSheet.create({
   container: {
