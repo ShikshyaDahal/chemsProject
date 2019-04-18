@@ -90,8 +90,7 @@ export default class Form extends Component {
 
 
   }
-  
-
+}
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,

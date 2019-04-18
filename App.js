@@ -1,41 +1,42 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+// /**
+//  * Sample React Native App
+//  * https://github.com/facebook/react-native
+//  * @flow
+//  */
 
-/*import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  StatusBar,
-  TouchableOpacity,
-  Text 
-} from 'react-native';
+// import React, { Component } from 'react';
+// import {
+//   StyleSheet,
+//   View,
+//   StatusBar,
+//   TouchableOpacity,
+//   Text 
+// } from 'react-native';
 
 
-import Routes from './src/Routes';
+// import Routes from './src/Routes';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar
-           backgroundColor="#1c313a"
-           barStyle="light-content"
-         />
-        <Routes/>
-      </View>
-    );
-  }
-}
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <StatusBar
+//            backgroundColor="#1c313a"
+//            barStyle="light-content"
+//          />
+//         <Routes/>
+//       </View>
+//     );
+//   }
+// }
 
-const styles = StyleSheet.create({
-  container : {
-    flex: 1,
-  }
-});*/
-//This is an example code for NavigationDrawer//
+// const styles = StyleSheet.create({
+//   container : {
+//     flex: 1,
+//   }
+// });
+// //This is an example code for NavigationDrawer//
+
 import React, { Component } from 'react';
 //import react in our code.
 import { View, Image, TouchableOpacity } from 'react-native';
@@ -46,14 +47,16 @@ import { View, Image, TouchableOpacity } from 'react-native';
 
 //For React Navigation 3.+ import following
 import {
+  createSwitchNavigator,
   createDrawerNavigator,
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
-
+import Login from 'app/src/pages/Login';
 import Screen1 from 'app/src/pages/Screen1';
 import Screen2 from 'app/src/pages/Screen2';
 import Screen3 from 'app/src/pages/Screen3';
+import Request from 'app/src/pages/Request';
 
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
@@ -83,9 +86,9 @@ class NavigationDrawerStructure extends Component {
 const FirstActivity_StackNavigator = createStackNavigator({
   //All the screen from the Screen1 will be indexed here
   First: {
-    screen: Screen1,
+    screen: Request,
     navigationOptions: ({ navigation }) => ({
-      title: 'Demo Screen 1',
+      title: 'Request',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: '#FF9800',
@@ -165,7 +168,21 @@ const DrawerNavigatorExample = createDrawerNavigator({
   },
 });
 
+// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
+// goes here.
+
+const AuthStack = createStackNavigator({ SignIn: Login });
+
+export default createAppContainer(createSwitchNavigator(
+  {
+    App:DrawerNavigatorExample,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'Auth',
+  }
+));
 //For React Navigation 2.+ need to export App only
 //export default DrawerNavigatorExample;
 //For React Navigation 3.+
-export default createAppContainer(DrawerNavigatorExample);
+//export default createAppContainer(DrawerNavigatorExample);

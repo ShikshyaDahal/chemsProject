@@ -11,11 +11,19 @@ import Logo from '../components/Logo';
 import Form from '../components/Form';
 
 import {Actions} from 'react-native-router-flux';
+//import console = require('console');
 
 export default class Login extends Component {
 
+  constructor(props) {
+    super(props);
+    this.signup = this.signup.bind(this);
+  }
+
 	signup() {
-		Actions.signup()
+     console.log(this.props);
+    this.props.navigation.navigate("App")
+	 //	Actions.signup()
 	}
 
 	render() {

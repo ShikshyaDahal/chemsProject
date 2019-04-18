@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
-=======
-import React, { Component } from 'react';
->>>>>>> refs/remotes/origin/master
 import {
   StyleSheet,
   Text,
   View,
-<<<<<<< HEAD
   StatusBar,
   TouchableOpacity,
   FlatList
@@ -70,33 +65,3 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
-=======
-  StatusBar ,
-  TouchableOpacity
-} from 'react-native';
-
-import RequestForm from '../components/RequestForm';
-
-import {Actions} from 'react-native-router-flux';
-
-export default class Request extends Component {
-
-	
-	render() {
-		return(
-            <View style={styles.container}>
-				<RequestForm/>
-                </View>			
-			)
-	}
-}
-
-const styles = StyleSheet.create({
-  container : {
-    backgroundColor:'#455a64',
-    flex: 1,
-    alignItems:'center',
-    justifyContent :'center'
-  }
-  });
->>>>>>> refs/remotes/origin/master
