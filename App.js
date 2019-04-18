@@ -10,9 +10,8 @@
 //   View,
 //   StatusBar,
 //   TouchableOpacity,
-//   Text 
+//   Text
 // } from 'react-native';
-
 
 // import Routes from './src/Routes';
 
@@ -37,9 +36,9 @@
 // });
 // //This is an example code for NavigationDrawer//
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import react in our code.
-import { View, Image, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity } from "react-native";
 // import all basic components
 
 //For React Navigation 2.+ import following
@@ -50,14 +49,18 @@ import {
   createSwitchNavigator,
   createDrawerNavigator,
   createStackNavigator,
-  createAppContainer,
-} from 'react-navigation';
-import Login from 'app/src/pages/Login';
-import Screen1 from 'app/src/pages/Screen1';
-import Screen2 from 'app/src/pages/Screen2';
-import Screen3 from 'app/src/pages/Screen3';
-import Request from 'app/src/pages/Request';
-
+  createAppContainer
+} from "react-navigation";
+import Login from "app/src/pages/Login";
+import Screen1 from "app/src/pages/Screen1";
+import Screen2 from "app/src/pages/Screen2";
+import Screen3 from "app/src/pages/Screen3";
+import Request from "app/src/pages/Request";
+import EstateInsert from "app/src/pages/EstateInsert";
+import DeliveryItem from "app/src/pages/DeliveryItem";
+import Survey from "app/src/pages/Survey";
+import MarketPlace from "app/src/pages/MarketPlace";
+import Estate from "app/src/pages/Estates";
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -66,11 +69,11 @@ class NavigationDrawerStructure extends Component {
   };
   render() {
     return (
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: "row" }}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           {/*Donute Button Image */}
           <Image
-            source={require('app/src/images/drawer.png')}
+            source={require("app/src/images/drawer.png")}
             style={{ width: 25, height: 25, marginLeft: 10 }}
           />
         </TouchableOpacity>
@@ -88,14 +91,14 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Request,
     navigationOptions: ({ navigation }) => ({
-      title: 'Request',
+      title: "Request",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#FF9800',
+        backgroundColor: "#FF9800"
       },
-      headerTintColor: '#fff',
-    }),
-  },
+      headerTintColor: "#fff"
+    })
+  }
 });
 
 //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
@@ -107,15 +110,15 @@ const Screen2_StackNavigator = createStackNavigator({
   Second: {
     screen: Screen2,
     navigationOptions: ({ navigation }) => ({
-      title: 'Demo Screen 2',
+      title: "Demo Screen 2",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
-        backgroundColor: '#FF9800',
+        backgroundColor: "#FF9800"
       },
-      headerTintColor: '#fff',
-    }),
-  },
+      headerTintColor: "#fff"
+    })
+  }
 });
 
 //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
@@ -127,16 +130,95 @@ const Screen3_StackNavigator = createStackNavigator({
   Third: {
     screen: Screen3,
     navigationOptions: ({ navigation }) => ({
-      title: 'Demo Screen 3',
+      title: "Demo Screen 3",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#FF9800',
+        backgroundColor: "#FF9800"
       },
-      headerTintColor: '#fff',
-    }),
-  },
+      headerTintColor: "#fff"
+    })
+  }
 });
+//For React Navigation 3.+
+const EstateInsert_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  fourth: {
+    screen: EstateInsert,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Insert",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
+      headerStyle: {
+        backgroundColor: "#FF9800"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+//For React Navigation 3.+
+const DeliveryItem_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  DeliveryItem: {
+    screen: DeliveryItem,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Insert",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#FF9800"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+//For React Navigation 3.+
+const Survey_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  Survey: {
+    screen: Survey,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Insert",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#FF9800"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+//For React Navigation 3.+
+const MarketPlace_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  MarketPlace: {
+    screen: MarketPlace,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Insert",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#FF9800"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+//For React Navigation 3.+
+const Estate_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  Estate: {
+    screen: Estate,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Insert",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#FF9800"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
 //For React Navigation 2.+ need to use DrawerNavigator instead createDrawerNavigator
 //const DrawerNavigatorExample = DrawerNavigator({
 
@@ -147,25 +229,62 @@ const DrawerNavigatorExample = createDrawerNavigator({
     //Title
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Demo Screen 1',
-    },
+      drawerLabel: "Demo Screen 1"
+    }
   },
 
   Screen2: {
     //Title
     screen: Screen2_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Demo Screen 2',
-    },
+      drawerLabel: "Demo Screen 2"
+    }
   },
 
   Screen3: {
     //Title
     screen: Screen3_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Demo Screen 3',
-    },
+      drawerLabel: "Demo Screen 3"
+    }
   },
+  EstateInsert: {
+    //Title
+    screen: EstateInsert_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "EstateInsert"
+    }
+  },
+  DeliveryItem: {
+    //Title
+    screen: DeliveryItem_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Deliver Item"
+    }
+  },
+  Survey: {
+    //Title
+    screen: Survey_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Survey"
+    }
+  },
+
+  MarketPlace: {
+    //Title
+    screen: MarketPlace_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "MarketPlace"
+    }
+  },
+
+  Estate: {
+    //Title
+    screen: Estate_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Estate"
+    }
+  }
 });
 
 // Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
@@ -173,15 +292,17 @@ const DrawerNavigatorExample = createDrawerNavigator({
 
 const AuthStack = createStackNavigator({ SignIn: Login });
 
-export default createAppContainer(createSwitchNavigator(
-  {
-    App:DrawerNavigatorExample,
-    Auth: AuthStack,
-  },
-  {
-    initialRouteName: 'Auth',
-  }
-));
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      App: DrawerNavigatorExample,
+      Auth: AuthStack
+    },
+    {
+      initialRouteName: "Auth"
+    }
+  )
+);
 //For React Navigation 2.+ need to export App only
 //export default DrawerNavigatorExample;
 //For React Navigation 3.+
