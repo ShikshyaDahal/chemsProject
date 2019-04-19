@@ -10,7 +10,11 @@ export default class Logo extends Component {
 	render(){
 		return(
 			<View style={styles.container}>
+<<<<<<< HEAD
 				<Image  style={styles.image}
+=======
+				<Image  style={{width:200, height: 70}}
+>>>>>>> origin/master
           			source={require('../images/logo.png')}/>
   			</View>
 			)
@@ -27,6 +31,7 @@ const styles = StyleSheet.create({
   	marginVertical: 15,
   	fontSize:18,
   	color:'rgba(255, 255, 255, 0.7)'
+<<<<<<< HEAD
   },
   image: {
     aspectRatio: 1.5, 
@@ -35,4 +40,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
 }
 
+=======
+  }
+>>>>>>> origin/master
 });
