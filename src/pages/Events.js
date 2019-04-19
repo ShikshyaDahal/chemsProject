@@ -9,7 +9,7 @@ import {
 
 import EventForm from '../components/EventForm';
 
-export default class Report extends Component {
+export default class Events extends Component {
 
 	
 	render() {
