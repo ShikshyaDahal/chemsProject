@@ -103,44 +103,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   }
 });
 
-//For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
-//const FirstActivity_StackNavigator = StackNavigator({
 
-//For React Navigation 3.+
-const Screen2_StackNavigator = createStackNavigator({
-  //All the screen from the Screen2 will be indexed here
-  Second: {
-    screen: Screen2,
-    navigationOptions: ({ navigation }) => ({
-      title: "Demo Screen 2",
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-
-      headerStyle: {
-        backgroundColor: "#4A4C4F"
-      },
-      headerTintColor: "#fff"
-    })
-  }
-});
-
-//For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
-//const FirstActivity_StackNavigator = StackNavigator({
-
-//For React Navigation 3.+
-const Screen3_StackNavigator = createStackNavigator({
-  //All the screen from the Screen3 will be indexed here
-  Third: {
-    screen: Screen3,
-    navigationOptions: ({ navigation }) => ({
-      title: "Demo Screen 3",
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: "#4A4C4F"
-      },
-      headerTintColor: "#fff"
-    })
-  }
-});
 //For React Navigation 3.+
 const EstateInsert_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -163,7 +126,7 @@ const DeliveryItem_StackNavigator = createStackNavigator({
   DeliveryItem: {
     screen: DeliveryItem,
     navigationOptions: ({ navigation }) => ({
-      title: "Estate Insert",
+      title: "Delivery items",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -179,7 +142,7 @@ const Survey_StackNavigator = createStackNavigator({
   Survey: {
     screen: Survey,
     navigationOptions: ({ navigation }) => ({
-      title: "Estate Insert",
+      title: "Survey",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -195,7 +158,7 @@ const MarketPlace_StackNavigator = createStackNavigator({
   MarketPlace: {
     screen: MarketPlace,
     navigationOptions: ({ navigation }) => ({
-      title: "Estate Insert",
+      title: "Market Place",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -248,25 +211,11 @@ const DrawerNavigatorExample = createDrawerNavigator({
     //Title
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
-      drawerLabel: "Demo Screen 1"
+      drawerLabel: "Request"
     }
   },
 
-  Screen2: {
-    //Title
-    screen: Screen2_StackNavigator,
-    navigationOptions: {
-      drawerLabel: "Demo Screen 2"
-    }
-  },
-
-  Screen3: {
-    //Title
-    screen: Screen3_StackNavigator,
-    navigationOptions: {
-      drawerLabel: "Demo Screen 3"
-    }
-  },
+  
   EstateInsert: {
     //Title
     screen: EstateInsert_StackNavigator,
