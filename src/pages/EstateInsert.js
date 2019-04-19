@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import EstateForm from "../components/EstateForm";
+import EstateForm from "../components/EstateTypeForm";
 
 import { Actions } from "react-native-router-flux";
 

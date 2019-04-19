@@ -10,71 +10,91 @@ import {
 } from "react-native";
 import { CheckBox } from "react-native-elements";
 
+import {Actions} from 'react-native-router-flux';
+
+
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
-export default class MessageForm extends Component {
-  state = {
-    checked: false
-  };
+export default class EstateTypeForm extends Component {
+
+
+  constructor() {
+
+    super();
+    this.state = {
+      title: '',
+      desc: ''
+    }
+
+    this.request = this.request.bind(this);
+
+  }
+
+  request() {
+    console.log(this.props);
+   this.props.navigation.navigate("Request")
+  //	Actions.signup()
+ }
+  updateValue(text, field) {
+   
+    this.setState({ [field]: text });
+  }
+
+  submit() {
+    let collection = {} 
+    var url = 'http://192.168.42.171:8080/WebAPI/api/estateTypes';
+
+    return fetch(url, {
+      method: 'POST',
+     
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        estateTypeDescription: this.state.title,
+        estateTypeName: this.state.desc,
+        createBy:"string",
+      }),
+    
+    }).then((response) => response.json())
+    .then((responseJson) => {
+     console.warn(responseJson)
+     // return {this.request};
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+
+  }
   render() {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Estate Type Id"
-            placeholderTextColor="#ffffff"
-            selectionColor="#fff"
-            keyboardType="email-address"
-            // onSubmitEditing={() => this.password.focus()}
-          />
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Estate Description"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            // ref={input => (this.password = input)}
-          />
+         
+         
 
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
             placeholder="Estate TypeName"
-            secureTextEntry={true}
             placeholderTextColor="#ffffff"
+            onChangeText={(text)=>this.updateValue(text,'title')}
+
             // ref={input => (this.password = input)}
           />
 
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Created date"
-            secureTextEntry={true}
+            placeholder="Estate Description"
             placeholderTextColor="#ffffff"
+            onChangeText={(text)=>this.updateValue(text,'desc')}
             // ref={input => (this.password = input)}
-          />
+          />  
 
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Updated by"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            // ref={input => (this.password = input)}
-          />
-
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Created date"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            // ref={input => (this.password = input)}
-          />
-
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=>this.submit()}>
             <Text style={styles.buttonText}>{this.props.type}</Text>
           </TouchableOpacity>
         </View>
