@@ -22,21 +22,15 @@ export default class EstateTypeForm extends Component {
       desc: ""
     };
 
-    this.request = this.request.bind(this);
   }
 
-<<<<<<< HEAD
-=======
-  request() {
-    console.log(this.props);
-    this.props.navigation.navigate("Request");
-    //	Actions.signup()
-  }
->>>>>>> 53f54a43e663cfba8ab4ee5ebcc90078a7d42e87
   updateValue(text, field) {
     this.setState({ [field]: text });
   }
 
+  estatetype() {
+   this.props.navigation.navigate("EstateTypeList");
+   }
   submit() {
     let collection = {};
     var url = "http://192.168.42.47:8080/WebAPI/api/estateTypes";
@@ -51,25 +45,15 @@ export default class EstateTypeForm extends Component {
       body: JSON.stringify({
         estateTypeDescription: this.state.title,
         estateTypeName: this.state.desc,
-<<<<<<< HEAD
         createBy:"string",
       }),
     
     }).then((response) => response.json())
     .then((responseJson) => {
-     console.warn(responseJson)
-     
-     this.estatetype
-=======
-        createBy: "string"
-      })
->>>>>>> 53f54a43e663cfba8ab4ee5ebcc90078a7d42e87
+
+      // {() => this.estatetype()}
+     console.warn(responseJson)    
     })
-      .then(response => response.json())
-      .then(responseJson => {
-        console.warn(responseJson);
-        // return {this.request};
-      })
       .catch(error => {
         console.error(error);
       });
