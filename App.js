@@ -122,7 +122,7 @@ const EstateTypeList_StackNavigator = createStackNavigator({
 //For React Navigation 3.+
 const EstateType_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
-  EstateType: {
+  fifth: {
     screen: EstateType,
     navigationOptions: ({ navigation }) => ({
       title: "Create Estate",
@@ -281,6 +281,7 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: EstateType_StackNavigator,
     navigationOptions: {
       drawerLabel: () => null,
+     
     }
   },
 });

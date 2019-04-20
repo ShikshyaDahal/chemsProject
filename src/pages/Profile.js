@@ -3,24 +3,53 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar,
-  TouchableOpacity
+  TextInput,
+  TouchableOpacity,
+  Keyboard,
+  TouchableWithoutFeedback
 } from "react-native";
 
-import ProfileForm from "../components/ProfileForm";
-
-import { Actions } from "react-native-router-flux";
+var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
 export default class Profile extends Component {
-  // signup() {
-  // 	Actions.signup()
-  // }
-
+  state = {
+    checked: false
+  };
   render() {
     return (
-      <View style={styles.container}>
-        <ProfileForm type="ProfileForm" />
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <View style={styles.container}>
+          <TextInput
+            style={styles.inputBox}
+            underlineColorAndroid="rgba(0,0,0,0)"
+            placeholder="Name"
+            placeholderTextColor="#ffffff"
+            selectionColor="#fff"
+            keyboardType="email-address"
+            onSubmitEditing={() => this.password.focus()}
+          />
+          <TextInput
+            style={styles.inputBox}
+            underlineColorAndroid="rgba(0,0,0,0)"
+            placeholder="Email"
+            secureTextEntry={true}
+            placeholderTextColor="#ffffff"
+            ref={input => (this.password = input)}
+          />
+          <TextInput
+            style={styles.inputBox}
+            underlineColorAndroid="rgba(0,0,0,0)"
+            placeholder="Phone"
+            secureTextEntry={true}
+            placeholderTextColor="#ffffff"
+            ref={input => (this.password = input)}
+          />
+
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Edit</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -34,18 +63,31 @@ const styles = StyleSheet.create({
   },
   signupTextCont: {
     flexGrow: 1,
-    alignItems: "flex-end",
     justifyContent: "center",
-    paddingVertical: 16,
-    flexDirection: "row"
+    alignItems: "center"
   },
-  signupText: {
-    color: "rgba(255,255,255,0.6)",
-    fontSize: 16
-  },
-  signupButton: {
-    color: "#ffffff",
+
+  inputBox: {
+    width: 300,
+    height: 40,
+    backgroundColor: "rgba(255, 255,255,0.2)",
+    borderRadius: 25,
+    paddingHorizontal: 16,
     fontSize: 16,
-    fontWeight: "500"
+    color: "#ffffff",
+    marginVertical: 10
+  },
+  button: {
+    width: 300,
+    backgroundColor: "#1c313a",
+    borderRadius: 25,
+    marginVertical: 10,
+    paddingVertical: 13
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#ffffff",
+    textAlign: "center"
   }
 });
