@@ -7,11 +7,11 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import EstateForm from "../components/EstateTypeForm";
+import EstateTypeForm from "../components/EstateTypeForm";
 
 import { Actions } from "react-native-router-flux";
 
-export default class EstateInsert extends Component {
+export default class EstateType extends Component {
   // signup() {
   // 	Actions.signup()
   // }
@@ -19,7 +19,7 @@ export default class EstateInsert extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <EstateForm type="Insert Estate" />
+        <EstateTypeForm type="Insert Estate Type" />
       </View>
     );
   }

@@ -30,11 +30,6 @@ export default class EstateTypeForm extends Component {
 
   }
 
-  request() {
-    console.log(this.props);
-   this.props.navigation.navigate("Request")
-  //	Actions.signup()
- }
   updateValue(text, field) {
    
     this.setState({ [field]: text });
@@ -60,7 +55,8 @@ export default class EstateTypeForm extends Component {
     }).then((response) => response.json())
     .then((responseJson) => {
      console.warn(responseJson)
-     // return {this.request};
+     
+     this.estatetype
     })
     .catch((error) => {
       console.error(error);

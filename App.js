@@ -53,16 +53,14 @@ import {
   createAppContainer
 } from "react-navigation";
 import Login from "app/src/pages/Login";
-import Screen1 from "app/src/pages/Screen1";
-import Screen2 from "app/src/pages/Screen2";
-import Screen3 from "app/src/pages/Screen3";
 import Request from "app/src/pages/Request";
-import EstateInsert from "app/src/pages/EstateInsert";
 import DeliveryItem from "app/src/pages/DeliveryItem";
 import Survey from "app/src/pages/Survey";
 import MarketPlace from "app/src/pages/MarketPlace";
-import Estate from "app/src/pages/Estates";
-import Events from "app/src/pages/Events"
+import Estates from "app/src/pages/Estates";
+import Events from "app/src/pages/Events";
+import EstateTypeList from "app/src/pages/EstateTypeList";
+import EstateType from "app/src/pages/EstateType"
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -105,12 +103,12 @@ const FirstActivity_StackNavigator = createStackNavigator({
 
 
 //For React Navigation 3.+
-const EstateInsert_StackNavigator = createStackNavigator({
+const EstateTypeList_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   fourth: {
-    screen: EstateInsert,
+    screen: EstateTypeList,
     navigationOptions: ({ navigation }) => ({
-      title: "Estate Insert",
+      title: "Estate List",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -120,6 +118,24 @@ const EstateInsert_StackNavigator = createStackNavigator({
     })
   }
 });
+
+//For React Navigation 3.+
+const EstateType_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  EstateType: {
+    screen: EstateType,
+    navigationOptions: ({ navigation }) => ({
+      title: "Create Estate",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
 //For React Navigation 3.+
 const DeliveryItem_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -169,12 +185,12 @@ const MarketPlace_StackNavigator = createStackNavigator({
   }
 });
 //For React Navigation 3.+
-const Estate_StackNavigator = createStackNavigator({
+const Estates_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
-  Estate: {
-    screen: Estate,
+  Estates: {
+    screen: Estates,
     navigationOptions: ({ navigation }) => ({
-      title: "Estate Insert",
+      title: "Estate ",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -188,7 +204,7 @@ const Estate_StackNavigator = createStackNavigator({
 
 const Events_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
-  Estate: {
+  Events: {
     screen: Events,
     navigationOptions: ({ navigation }) => ({
       title: "Events",
@@ -216,11 +232,11 @@ const DrawerNavigatorExample = createDrawerNavigator({
   },
 
   
-  EstateInsert: {
+  EstateTypeList: {
     //Title
-    screen: EstateInsert_StackNavigator,
+    screen: EstateTypeList_StackNavigator,
     navigationOptions: {
-      drawerLabel: "EstateInsert"
+      drawerLabel: "Estate Type"
     }
   },
   DeliveryItem: {
@@ -246,9 +262,9 @@ const DrawerNavigatorExample = createDrawerNavigator({
     }
   },
 
-  Estate: {
+  Estates: {
     //Title
-    screen: Estate_StackNavigator,
+    screen: Estates_StackNavigator,
     navigationOptions: {
       drawerLabel: "Estate"
     }
@@ -260,19 +276,23 @@ const DrawerNavigatorExample = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: "Events"
     }
-  }
+  },
+  EstateType: {
+    screen: EstateType_StackNavigator,
+    navigationOptions: {
+      drawerLabel: () => null,
+    }
+  },
 });
 
-// Implementation of HomeScreen, OtherScreen, SignInScreen, AuthLoadingScreen
-// goes here.
+
 
 const AuthStack = createStackNavigator({ SignIn: Login }, { headerMode: 'none' });
-
 export default createAppContainer(createSwitchNavigator(
   {
     App:DrawerNavigatorExample,
     Auth: AuthStack,
-  },
+   },
   {
     initialRouteName: 'Auth',
   }
