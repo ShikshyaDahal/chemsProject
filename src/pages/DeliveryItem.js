@@ -12,10 +12,6 @@ import DeliveryItemForm from "../components/DeliveryItemForm";
 import { Actions } from "react-native-router-flux";
 
 export default class DeliveryItem extends Component {
-  // signup() {
-  // 	Actions.signup()
-  // }
-
   render() {
     return (
       <View style={styles.container}>
