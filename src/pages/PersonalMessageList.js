@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   StyleSheet,
@@ -6,24 +5,21 @@ import {
 } from 'react-native';
 import { Button, TouchableOpacity,TouchableHighlight } from 'react-native-elements';
 
-export default class EstateTypeList extends React.Component {
+export default class PersonalMessageList extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
-    this.estatetype = this.estatetype.bind(this);
-    this.estatetypelist = this.estatetypelist.bind(this);
+     this.personalmessagecreate = this.personalmessagecreate.bind(this);
+    // this.estatetypelist = this.estatetypelist.bind(this);
   }
 
-  estatetype() {
+  personalmessagecreate() {
     console.log(this.props);
-    this.props.navigation.navigate("EstateType");
+    this.props.navigation.navigate("PersonalMessage");
   }
 
-  estatetypelist() {
-    console.log(this.props);
-    this.props.navigation.navigate("EstateTypeList");
-  }
+ 
 
   _onPressItem = (item) => { 
     console.log(item)
@@ -67,26 +63,7 @@ export default class EstateTypeList extends React.Component {
 };
 
   componentDidMount() {
-    return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
-
-  //  this.deleteEstateType = this.deleteEstateType.bind(this);
-  })
-  }
-  estatetype() {
-    console.log(this.props);
-    this.props.navigation.navigate("EstateType");
-  }
-
-  deleteEstateType() {
-
-    console.log(this.props)
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
-      method: 'GET'
-    })
-  }
-
-  componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/personalMessages/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -120,27 +97,16 @@ export default class EstateTypeList extends React.Component {
     return (
       <View >
         <View>
-          <Button  onPress={this.estatetype}
-          title = "Add Estate Type">
-          <Text style={styles.signupButton}>Add Estate Type</Text></Button>
+          <Button  onPress={this.PersonalMessage}
+          title = "Send Message">
+          <Text style={styles.signupButton}>Send Message</Text></Button>
         </View>
         <View>
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estateTypeId},{item.estateTypeDescription}, {item.estateTypeName}
-            </Text></View><View style={styles1.quarterHeight}>
-              <Button 
-              onPress={this.deleteEstateType}
-              title = "Delete"
-              borderColor = 'black'
-              backgroundColor = 'black'></Button >
-              <Button  
-              title = "Update"
-              colour="#841524"
-              backgroundColor='#3fffff'
-               onPress={this.update}></Button>
-               </View></View>
+            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.message}, {item.estateTypeName}
+            </Text></View></View>
               
               }
 
@@ -153,8 +119,6 @@ export default class EstateTypeList extends React.Component {
 }
 var styles1 = StyleSheet.create({
   container: {
-    backgroundColor:'#3fffff',
-    
       flex: 1,
       flexDirection: 'row',
       justifyContent:'space-between',

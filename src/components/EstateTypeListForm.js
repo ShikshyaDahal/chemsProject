@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react';
 import {   StyleSheet,
   FlatList, ActivityIndicator, Text, View  } from 'react-native';
@@ -95,3 +97,4 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c

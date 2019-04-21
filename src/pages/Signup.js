@@ -10,14 +10,20 @@ import {
 import Logo from '../components/Logo';
 import SignupForm from '../components/SignupForm';
 
-import {Actions} from 'react-native-router-flux';
 
 export default class Signup extends Component {
 
-  login() {
-      Actions.login();
+  constructor(props) {
+    super(props);
+
+    this.login = this.login.bind(this);
+
   }
 
+	login() {
+     console.log(this.props);
+    this.props.navigation.navigate("Auth")
+  }
 	render() {
 		return(
 			<View style={styles.container}>
