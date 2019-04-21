@@ -60,7 +60,9 @@ import MarketPlace from "app/src/pages/MarketPlace";
 import Estates from "app/src/pages/Estates";
 import Events from "app/src/pages/Events";
 import EstateTypeList from "app/src/pages/EstateTypeList";
-import EstateType from "app/src/pages/EstateType"
+import EstateType from "app/src/pages/EstateType";
+import AnnouncementList from "app/src/pages/AnnouncementList";
+import Announcement from "app/src/pages/Announcement"
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -109,6 +111,44 @@ const EstateTypeList_StackNavigator = createStackNavigator({
     screen: EstateTypeList,
     navigationOptions: ({ navigation }) => ({
       title: "Estate List",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
+
+
+//For React Navigation 3.+
+const AnnouncementList_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  AnnouncementList: {
+    screen: AnnouncementList,
+    navigationOptions: ({ navigation }) => ({
+      title: "Announcement List",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
+
+
+//For React Navigation 3.+
+const Announcement_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  Announcement: {
+    screen: Announcement,
+    navigationOptions: ({ navigation }) => ({
+      title: "Create Announcement",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -283,7 +323,19 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: () => null,
      
     }
-  },
+  },AnnouncementList: {
+    //Title
+    screen: AnnouncementList_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Announcement List"
+    }
+  }, Announcement: {
+    screen: Announcement_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "create Announcement"
+     
+    }
+  }
 });
 
 

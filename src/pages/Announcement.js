@@ -76,7 +76,7 @@ export default class Announcement extends Component {
       desc: ""
     };
     this.submit = this.submit.bind(this);
-    this.announcementnav = this.annuncementnav.bind(this);
+    this.announcementnav = this.announcementnav.bind(this);
 
   }
 
@@ -141,7 +141,7 @@ export default class Announcement extends Component {
             underlineColorAndroid="rgba(0,0,0,0)"
             placeholder="Announcement"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "title")}
+            onChangeText={text => this.updateValue(text, "announcement")}
 
             // ref={input => (this.password = input)}
           />
@@ -151,7 +151,7 @@ export default class Announcement extends Component {
             underlineColorAndroid="rgba(0,0,0,0)"
             placeholder="recieverId"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "desc")}
+            onChangeText={text => this.updateValue(text, "recieverId")}
             // ref={input => (this.password = input)}
           />
 

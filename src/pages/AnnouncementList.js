@@ -10,13 +10,12 @@ export default class AnnouncementList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
-    this.estatetype = this.estatetype.bind(this);
-    this.deleteEstateType = this.deleteEstateType.bind(this);
-  }
+    this.announcement = this.announcement.bind(this);
+    }
 
-  createAnnouncement() {
+    announcement() {
     console.log(this.props);
-    this.props.navigation.navigate("createAnnouncement");
+    this.props.navigation.navigate("Announcement");
   }
 
   componentDidMount() {
@@ -54,9 +53,9 @@ export default class AnnouncementList extends React.Component {
     return (
       <View >
         <View>
-          <Button  onPress={this.estatetype}
-          title = "Add Estate Type">
-          <Text style={styles.signupButton}>Add Estate Type</Text></Button>
+          <Button  onPress={this.announcement}
+          title = "Add announcement">
+          <Text style={styles.signupButton}>Add announcement</Text></Button>
         </View>
         <View>
           <FlatList
@@ -64,9 +63,7 @@ export default class AnnouncementList extends React.Component {
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.announcementMessage}</Text></View><View style={styles1.quarterHeight}>
                </View></View>
-              
               }
-
           />
         </View>
 
