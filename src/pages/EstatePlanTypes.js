@@ -68,7 +68,7 @@ import {
 
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
-export default class Announcement extends Component {
+export default class EstatePlanTypes extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,16 +76,16 @@ export default class Announcement extends Component {
       desc: ""
     };
     this.submit = this.submit.bind(this);
-    this.announcementnav = this.announcementnav.bind(this);
+    this.estatePlanTypesnav = this.estatePlanTypesnav.bind(this);
 
   }
 
-  announcementnav() {
+  estatePlanTypesnav() {
 
     console.log('here');
     console.log(this.props);
 
-    this.props.navigation.navigate("AnnouncementList");
+    this.props.navigation.navigate("estatePlanTypesList");
    }
 
     
@@ -99,7 +99,7 @@ export default class Announcement extends Component {
     console.log(this.props);
 
     let collection = {};
-    var url = "http://192.168.42.171:8080/WebAPI/api/announcements";
+    var url = "http://192.168.42.171:8080/WebAPI/api/estatePlanTypes";
 
     
 
@@ -111,8 +111,8 @@ export default class Announcement extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        announcementMessage: this.state.announcement,
-        createBy:"string",        announcementRecieverId: this.state.recieverId,
+        estatePlanTypeDescription: this.state.estateTypeNameDescription,
+        createBy:"string",        estatePlanTypeName: this.state.estateTypeName,
 
       }),
     
@@ -120,7 +120,7 @@ export default class Announcement extends Component {
     .then((responseJson) => {
       Alert.alert(
         [
-          {text: 'OK', onPress: () => this.announcementnav()},
+          {text: 'OK', onPress: () => this.estatePlanTypesnav()},
         ],
         { cancelable: false }
       )
@@ -139,9 +139,9 @@ export default class Announcement extends Component {
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Announcement"
+            placeholder="estatePlanTypesDescription"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "announcement")}
+            onChangeText={text => this.updateValue(text, "estatePlanTypes")}
 
             // ref={input => (this.password = input)}
           />
@@ -149,14 +149,14 @@ export default class Announcement extends Component {
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="recieverId"
+            placeholder="estateTypeName"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "recieverId")}
+            onChangeText={text => this.updateValue(text, "estateTypeName")}
             // ref={input => (this.password = input)}
           />
 
           <TouchableOpacity style={styles.button} onPress={this.submit}>
-            <Text style={styles.buttonText}>Insert Announcement</Text>
+            <Text style={styles.buttonText}>Insert EstatePlanTypes</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
