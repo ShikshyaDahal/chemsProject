@@ -1,52 +1,3 @@
-// import React, { Component } from 'react';
-// import {
-//   StyleSheet,
-//   Text,
-//   View,
-//   StatusBar ,
-//   TouchableOpacity
-// } from 'react-native';
-
-// import EstateTypeListForm from '../components/EstateTypeListForm';
-
-// export default class EventTypeList extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.estatetype = this.estatetype.bind(this);
-//       }
-
-//       estatetype() {
-//          console.log(this.props);
-//         this.props.navigation.navigate("EstateType");
-
-
-//         }
-
-// 	render() {
-// 		return(
-//             <View style={styles.container}>
-// 				<EstateTypeListForm/>
-//                 <View>
-// 					<TouchableOpacity onPress={this.estatetype}><Text style={styles.signupButton}>Add Estate Type</Text></TouchableOpacity>
-// 				</View>
-//                 </View>			
-// 			)
-// 	}
-// }
-
-// const styles = StyleSheet.create({
-//   container : {
-//     backgroundColor:'#455a64',
-//     flex: 1,
-//     alignItems:'center',
-//     justifyContent :'center'
-//   },signupButton: {
-//     color:'#ffffff',
-//     fontSize:16,
-//     fontWeight:'500'
-// }
-//   });
-
 import React from 'react';
 import {
   StyleSheet,
@@ -54,7 +5,7 @@ import {
 } from 'react-native';
 import { Button, TouchableOpacity,TouchableHighlight } from 'react-native-elements';
 
-export default class EstateTypeList extends React.Component {
+export default class AnnouncementList extends React.Component {
 
   constructor(props) {
     super(props);
@@ -63,21 +14,13 @@ export default class EstateTypeList extends React.Component {
     this.deleteEstateType = this.deleteEstateType.bind(this);
   }
 
-  estatetype() {
+  createAnnouncement() {
     console.log(this.props);
-    this.props.navigation.navigate("EstateType");
-  }
-
-  deleteEstateType() {
-
-    console.log(this.props)
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
-      method: 'GET'
-    })
+    this.props.navigation.navigate("createAnnouncement");
   }
 
   componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+    return fetch('http://192.41.170.207:8080/WebAPI/api/announcements/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -119,18 +62,7 @@ export default class EstateTypeList extends React.Component {
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estateTypeId},{item.estateTypeDescription}, {item.estateTypeName}
-            </Text></View><View style={styles1.quarterHeight}>
-              <Button 
-              onPress={this.deleteEstateType}
-              title = "Delete"
-              borderColor = 'black'
-              backgroundColor = 'black'></Button >
-              <Button  
-              title = "Update"
-              colour="#841524"
-              backgroundColor='#3fffff'
-               onPress={this.update}></Button>
+            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.announcementMessage}</Text></View><View style={styles1.quarterHeight}>
                </View></View>
               
               }
