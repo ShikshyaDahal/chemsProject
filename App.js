@@ -61,17 +61,14 @@ import Estates from "app/src/pages/Estates";
 import Events from "app/src/pages/Events";
 import EstateTypeList from "app/src/pages/EstateTypeList";
 import EstateType from "app/src/pages/EstateType";
-<<<<<<< HEAD
 import EstateTypeUpdate from "app/src/pages/EstateTypeUpdate";
 import Signup from "app/src/pages/Signup";
 import Dashboard from "app/src/pages/Dashboard";
 import PersonalMessageList from "app/src/pages/PersonalMessageList";
 import PersonalMessage from "app/src/pages/PersonalMessage";
 
-=======
 import AnnouncementList from "app/src/pages/AnnouncementList";
 import Announcement from "app/src/pages/Announcement"
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -133,21 +130,27 @@ const EstateTypeList_StackNavigator = createStackNavigator({
 
 
 //For React Navigation 3.+
-<<<<<<< HEAD
 const personalMessageList_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   personalMessageList: {
     screen: PersonalMessageList,
     navigationOptions: ({ navigation }) => ({
       title: "Messages",
-=======
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
 const AnnouncementList_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   AnnouncementList: {
     screen: AnnouncementList,
     navigationOptions: ({ navigation }) => ({
       title: "Announcement List",
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -159,7 +162,6 @@ const AnnouncementList_StackNavigator = createStackNavigator({
 });
 
 
-<<<<<<< HEAD
 //For React Navigation 3.+
 const PersonalMessage_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -167,8 +169,15 @@ const PersonalMessage_StackNavigator = createStackNavigator({
     screen: PersonalMessage,
     navigationOptions: ({ navigation }) => ({
       title: "Messages",
-=======
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
 //For React Navigation 3.+
 const Announcement_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -176,7 +185,6 @@ const Announcement_StackNavigator = createStackNavigator({
     screen: Announcement,
     navigationOptions: ({ navigation }) => ({
       title: "Create Announcement",
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -410,7 +418,6 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: () => null,
      
     }
-<<<<<<< HEAD
   }, EstateTypeUpdate: {
     screen: EstateTypeUpdate_StackNavigator,
     navigationOptions: {
@@ -430,18 +437,6 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: PersonalMessage_StackNavigator,
     navigationOptions: {
       drawerLabel: () => null,
-=======
-  },AnnouncementList: {
-    //Title
-    screen: AnnouncementList_StackNavigator,
-    navigationOptions: {
-      drawerLabel: "Announcement List"
-    }
-  }, Announcement: {
-    screen: Announcement_StackNavigator,
-    navigationOptions: {
-      drawerLabel: "create Announcement"
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
      
     }
   }
