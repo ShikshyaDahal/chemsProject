@@ -68,7 +68,7 @@ import {
 
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
-export default class EstatePlanTypes extends Component {
+export default class Role extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -76,16 +76,16 @@ export default class EstatePlanTypes extends Component {
       desc: ""
     };
     this.submit = this.submit.bind(this);
-    this.estatePlanTypesnav = this.estatePlanTypesnav.bind(this);
+    this.rolenav = this.rolenav.bind(this);
 
   }
 
-  estatePlanTypesnav() {
+  rolenav() {
 
     console.log('here');
     console.log(this.props);
 
-    this.props.navigation.navigate("EstatePlanTypesList");
+    this.props.navigation.navigate("RoleList");
    }
 
     
@@ -99,7 +99,7 @@ export default class EstatePlanTypes extends Component {
     console.log(this.props);
 
     let collection = {};
-    var url = "http://192.168.42.171:8080/WebAPI/api/estatePlanTypes";
+    var url = "http://192.168.42.171:8080/WebAPI/api/roles";
 
     
 
@@ -111,8 +111,8 @@ export default class EstatePlanTypes extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        estatePlanTypeDescription: this.state.estateTypeNameDescription,
-        createBy:"string",        estatePlanTypeName: this.state.estateTypeName,
+        roleName: this.state.roleName,
+        
 
       }),
     
@@ -120,17 +120,14 @@ export default class EstatePlanTypes extends Component {
     .then((responseJson) => {
       Alert.alert(
         [
-          {text: 'OK', onPress: () => this.estatePlanTypesnav()},
+          {text: 'OK', onPress: () => this.rolenav()},
         ],
         { cancelable: false }
       )
-      
     })
       .catch(error => {
         console.error(error);
       });
-
-     
   }
   render() {
     return (
@@ -139,24 +136,15 @@ export default class EstatePlanTypes extends Component {
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="estatePlanTypesDescription"
+            placeholder="role"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "estatePlanTypes")}
+            onChangeText={text => this.updateValue(text, "roleName")}
 
-            // ref={input => (this.password = input)}
-          />
-
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="estateTypeName"
-            placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "estateTypeName")}
             // ref={input => (this.password = input)}
           />
 
           <TouchableOpacity style={styles.button} onPress={this.submit}>
-            <Text style={styles.buttonText}>Insert EstatePlanTypes</Text>
+            <Text style={styles.buttonText}>Insert role</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>
