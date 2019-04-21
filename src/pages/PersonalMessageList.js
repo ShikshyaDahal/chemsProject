@@ -5,24 +5,21 @@ import {
 } from 'react-native';
 import { Button, TouchableOpacity,TouchableHighlight } from 'react-native-elements';
 
-export default class EstateTypeList extends React.Component {
+export default class PersonalMessageList extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
-    this.estatetype = this.estatetype.bind(this);
-    this.estatetypelist = this.estatetypelist.bind(this);
+     this.personalmessagecreate = this.personalmessagecreate.bind(this);
+    // this.estatetypelist = this.estatetypelist.bind(this);
   }
 
-  estatetype() {
+  personalmessagecreate() {
     console.log(this.props);
-    this.props.navigation.navigate("EstateType");
+    this.props.navigation.navigate("PersonalMessage");
   }
 
-  estatetypelist() {
-    console.log(this.props);
-    this.props.navigation.navigate("EstateTypeList");
-  }
+ 
 
   _onPressItem = (item) => { 
     console.log(item)
@@ -66,7 +63,7 @@ export default class EstateTypeList extends React.Component {
 };
 
   componentDidMount() {
-    return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/personalMessages/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -100,26 +97,16 @@ export default class EstateTypeList extends React.Component {
     return (
       <View >
         <View>
-          <Button  onPress={this.estatetype}
-          title = "Add Estate Type">
-          <Text style={styles.signupButton}>Add Estate Type</Text></Button>
+          <Button  onPress={this.PersonalMessage}
+          title = "Send Message">
+          <Text style={styles.signupButton}>Send Message</Text></Button>
         </View>
         <View>
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estateTypeDescription}, {item.estateTypeName}
-            </Text></View><View style={styles1.quarterHeight}>
-              <Button 
-              onPress={()=>{this._onPressItem(item)}}
-              title = "Delete"
-              borderColor = 'black'
-              backgroundColor = 'black'></Button >
-              <Button  
-              title = "Update"
-              color = "black"
-              onPress={()=>{this._onPressUpdate(item.estateTypeId)}}></Button>
-               </View></View>
+            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.message}, {item.estateTypeName}
+            </Text></View></View>
               
               }
 
