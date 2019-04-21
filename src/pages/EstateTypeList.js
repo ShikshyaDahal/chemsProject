@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+=======
+// import React, { Component } from 'react';
+// import {
+//   StyleSheet,
+//   Text,
+//   View,
+//   StatusBar ,
+//   TouchableOpacity
+// } from 'react-native';
+
+// import EstateTypeListForm from '../components/EstateTypeListForm';
+
+// export default class EventTypeList extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.estatetype = this.estatetype.bind(this);
+//       }
+
+//       estatetype() {
+//          console.log(this.props);
+//         this.props.navigation.navigate("EstateType");
+
+
+//         }
+
+// 	render() {
+// 		return(
+//             <View style={styles.container}>
+// 				<EstateTypeListForm/>
+//                 <View>
+// 					<TouchableOpacity onPress={this.estatetype}><Text style={styles.signupButton}>Add Estate Type</Text></TouchableOpacity>
+// 				</View>
+//                 </View>			
+// 			)
+// 	}
+// }
+
+// const styles = StyleSheet.create({
+//   container : {
+//     backgroundColor:'#455a64',
+//     flex: 1,
+//     alignItems:'center',
+//     justifyContent :'center'
+//   },signupButton: {
+//     color:'#ffffff',
+//     fontSize:16,
+//     fontWeight:'500'
+// }
+//   });
+
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
 import React from 'react';
 import {
   StyleSheet,
@@ -11,6 +63,7 @@ export default class EstateTypeList extends React.Component {
     super(props);
     this.state = { isLoading: true };
     this.estatetype = this.estatetype.bind(this);
+<<<<<<< HEAD
     this.estatetypelist = this.estatetypelist.bind(this);
   }
 
@@ -67,10 +120,31 @@ export default class EstateTypeList extends React.Component {
 
   componentDidMount() {
     return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
+=======
+    this.deleteEstateType = this.deleteEstateType.bind(this);
+  }
+
+  estatetype() {
+    console.log(this.props);
+    this.props.navigation.navigate("EstateType");
+  }
+
+  deleteEstateType() {
+
+    console.log(this.props)
+    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+      method: 'GET'
+    })
+  }
+
+  componentDidMount() {
+    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       method: 'GET'
     })
       .then((response) => response.json())
       .then((responseJson) => {
+<<<<<<< HEAD
 
         this.setState({
           isLoading: false,
@@ -79,6 +153,16 @@ export default class EstateTypeList extends React.Component {
 
         });
 
+=======
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function () {
+
+        });
+
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       })
       .catch((error) => {
         console.error(error);
@@ -108,17 +192,30 @@ export default class EstateTypeList extends React.Component {
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
+<<<<<<< HEAD
             renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estateTypeDescription}, {item.estateTypeName}
             </Text></View><View style={styles1.quarterHeight}>
               <Button 
               onPress={()=>{this._onPressItem(item)}}
+=======
+            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estateTypeId},{item.estateTypeDescription}, {item.estateTypeName}
+            </Text></View><View style={styles1.quarterHeight}>
+              <Button 
+              onPress={this.deleteEstateType}
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
               title = "Delete"
               borderColor = 'black'
               backgroundColor = 'black'></Button >
               <Button  
               title = "Update"
+<<<<<<< HEAD
               color = "black"
               onPress={()=>{this._onPressUpdate(item.estateTypeId)}}></Button>
+=======
+              colour="#841524"
+              backgroundColor='#3fffff'
+               onPress={this.update}></Button>
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
                </View></View>
               
               }
@@ -132,6 +229,11 @@ export default class EstateTypeList extends React.Component {
 }
 var styles1 = StyleSheet.create({
   container: {
+<<<<<<< HEAD
+=======
+    backgroundColor:'#3fffff',
+    
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       flex: 1,
       flexDirection: 'row',
       justifyContent:'space-between',
@@ -192,4 +294,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     backgroundColor: 'red'
  }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
