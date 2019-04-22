@@ -1,60 +1,3 @@
-// import React, { Component } from "react";
-// import {
-//   StyleSheet,
-//   Text,
-//   View,
-//   StatusBar,
-//   TouchableOpacity
-// } from "react-native";
-
-// import EstateTypeForm from "../components/EstateTypeForm";
-
-// import { Actions } from "react-native-router-flux";
-
-// export default class EstateType extends Component {
-//   // signup() {
-//   // 	Actions.signup()
-//   // }
-
-
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <EstateTypeForm/>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: "#455a64",
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center"
-//   },
-//   signupTextCont: {
-//     flexGrow: 1,
-//     alignItems: "flex-end",
-//     justifyContent: "center",
-//     paddingVertical: 16,
-//     flexDirection: "row"
-//   },
-//   signupText: {
-//     color: "rgba(255,255,255,0.6)",
-//     fontSize: 16
-//   },
-//   signupButton: {
-//     color: "#ffffff",
-//     fontSize: 16,
-//     fontWeight: "500"
-//   }
-// });
-
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -81,11 +24,7 @@ export default class EstatePlanTypes extends Component {
   }
 
   estatePlanTypesnav() {
-
-    console.log('here');
-    console.log(this.props);
-
-    this.props.navigation.navigate("EstatePlanTypesList");
+  this.props.navigation.navigate("EstatePlanTypesList");
    }
 
     
@@ -136,27 +75,28 @@ export default class EstatePlanTypes extends Component {
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
-          <TextInput
+
+
+        <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="estatePlanTypesDescription"
-            placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "estatePlanTypes")}
-
-            // ref={input => (this.password = input)}
-          />
-
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="estateTypeName"
+            placeholder="Name"
             placeholderTextColor="#ffffff"
             onChangeText={text => this.updateValue(text, "estateTypeName")}
-            // ref={input => (this.password = input)}
           />
 
+          <TextInput
+            style={styles.inputBox}
+            underlineColorAndroid="rgba(0,0,0,0)"
+            placeholder="Description"
+            placeholderTextColor="#ffffff"
+            onChangeText={text => this.updateValue(text, "estatePlanTypes")}
+          />
+
+         
+
           <TouchableOpacity style={styles.button} onPress={this.submit}>
-            <Text style={styles.buttonText}>Insert EstatePlanTypes</Text>
+            <Text style={styles.buttonText}>Insert Type</Text>
           </TouchableOpacity>
         </View>
       </TouchableWithoutFeedback>

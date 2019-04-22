@@ -24,8 +24,6 @@ export default class PersonalMessage extends Component {
   }
 
   personalMessagenav() {
-    console.log(this.props);
-
     this.props.navigation.navigate("PersonalMessageList");
    }
 
@@ -63,7 +61,7 @@ export default class PersonalMessage extends Component {
         '',
         'Message sent',
         [
-          {text: 'OK', onPress: () => this.estatetypenav()},
+          {text: 'OK', onPress: () => this.personalMessagenav()},
         ],
         { cancelable: false }
       )
@@ -82,7 +80,7 @@ export default class PersonalMessage extends Component {
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Estate TypeName"
+            placeholder="Receiver name"
             placeholderTextColor="#ffffff"
             onChangeText={text => this.updateValue(text, "message")}
 
@@ -92,7 +90,7 @@ export default class PersonalMessage extends Component {
           <TextInput
             style={styles.inputBox}
             underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Estate Description"
+            placeholder="Message"
             placeholderTextColor="#ffffff"
             onChangeText={text => this.updateValue(text, "receiverid")}
             // ref={input => (this.password = input)}

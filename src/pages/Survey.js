@@ -9,6 +9,8 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 import { CheckBox } from "react-native-elements";
+import DatePicker from "react-native-datepicker";
+
 
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
@@ -29,7 +31,7 @@ export default class Survey extends Component {
 
   submit() {
     let collection = {};
-    var url = "http://192.168.42.47:8080/WebAPI/api/survey";
+    var url = "http://192.168.42.171:8080/WebAPI/api/survey";
 
     return fetch(url, {
       method: "POST",
@@ -80,18 +82,38 @@ export default class Survey extends Component {
             placeholderTextColor="#ffffff"
             onChangeText={text => this.updateValue(text, "surveyName")}
 
-            // ref={input => (this.password = input)}
+          // ref={input => (this.password = input)}
           />
 
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
+
+
+
+          <DatePicker
+            style={{ width: 200 }}
+            date={this.state.date}
+            mode="date"
             placeholder="Survey Date"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            // ref={input => (this.password = input)}
-            onChangeText={text => this.updateValue(text, "surveyDate")}
+            format="YYYY-MM-DD"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+                position: "absolute",
+                left: 0,
+                top: 4,
+                marginLeft: 0
+              },
+              dateInput: {
+                marginLeft: 36
+              }
+            }}
+            onDateChange={date => {
+              this.setState({ date: date });
+            }}
           />
+
+
+
 
           <TextInput
             style={styles.inputBox}
@@ -115,10 +137,10 @@ export default class Survey extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#455a64",
-     flex: 1,
-     alignItems: "center",
-     justifyContent: "center"
-   },
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
 
   inputBox: {
     width: 300,

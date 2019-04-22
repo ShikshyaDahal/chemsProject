@@ -1,60 +1,3 @@
-// import React, { Component } from "react";
-// import {
-//   StyleSheet,
-//   Text,
-//   View,
-//   StatusBar,
-//   TouchableOpacity
-// } from "react-native";
-
-// import EstateTypeForm from "../components/EstateTypeForm";
-
-// import { Actions } from "react-native-router-flux";
-
-// export default class EstateType extends Component {
-//   // signup() {
-//   // 	Actions.signup()
-//   // }
-
-
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <EstateTypeForm/>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: "#455a64",
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center"
-//   },
-//   signupTextCont: {
-//     flexGrow: 1,
-//     alignItems: "flex-end",
-//     justifyContent: "center",
-//     paddingVertical: 16,
-//     flexDirection: "row"
-//   },
-//   signupText: {
-//     color: "rgba(255,255,255,0.6)",
-//     fontSize: 16
-//   },
-//   signupButton: {
-//     color: "#ffffff",
-//     fontSize: 16,
-//     fontWeight: "500"
-//   }
-// });
-
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -81,10 +24,6 @@ export default class Role extends Component {
   }
 
   rolenav() {
-
-    console.log('here');
-    console.log(this.props);
-
     this.props.navigation.navigate("RoleList");
    }
 
@@ -99,7 +38,7 @@ export default class Role extends Component {
     console.log(this.props);
 
     let collection = {};
-    var url = "http://192.168.42.171:8080/WebAPI/api/roles";
+    var url = "http://192.168.42.171:8080/WebAPI/api/role";
 
     
 
@@ -111,7 +50,7 @@ export default class Role extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        roleName: this.state.roleName,
+        roleName: this.state.title,
         
 
       }),
@@ -138,9 +77,7 @@ export default class Role extends Component {
             underlineColorAndroid="rgba(0,0,0,0)"
             placeholder="role"
             placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "roleName")}
-
-            // ref={input => (this.password = input)}
+            onChangeText={text => this.updateValue(text, "title")}
           />
 
           <TouchableOpacity style={styles.button} onPress={this.submit}>

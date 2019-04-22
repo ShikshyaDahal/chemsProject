@@ -15,11 +15,11 @@ export default class EstatePlanTypeList extends React.Component {
 
     estatePlanType() {
     console.log(this.props);
-    this.props.navigation.navigate("estatePlanType");
+    this.props.navigation.navigate("EstatePlanTypes");
   }
 
   componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estatePlanTypes/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/estatePlanTypes/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -54,14 +54,19 @@ export default class EstatePlanTypeList extends React.Component {
       <View >
         <View>
           <Button  onPress={this.estatePlanType}
-          title = "Add estatePlanType">
-          <Text style={styles.signupButton}>Add estatePlanType</Text></Button>
+          title = "Add estate Plan Type">
+          <Text style={styles.signupButton}>Add Estate Plan Type</Text></Button>
         </View>
         <View>
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.estatePlanTypeDescription}{item.estatePlanTypeName}</Text></View><View style={styles1.quarterHeight}>
+            renderItem={({ item }) => <View style={styles1.container}>
+            <View style={styles1.halfHeight}>
+            
+            <Text >{item.estatePlanTypeName}</Text>
+            <Text >{item.estatePlanTypeDescription}</Text>
+            </View><View style={styles1.quarterHeight}>
                </View></View>
               }
           />

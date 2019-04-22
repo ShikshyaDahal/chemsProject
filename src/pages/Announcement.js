@@ -1,60 +1,3 @@
-// import React, { Component } from "react";
-// import {
-//   StyleSheet,
-//   Text,
-//   View,
-//   StatusBar,
-//   TouchableOpacity
-// } from "react-native";
-
-// import EstateTypeForm from "../components/EstateTypeForm";
-
-// import { Actions } from "react-native-router-flux";
-
-// export default class EstateType extends Component {
-//   // signup() {
-//   // 	Actions.signup()
-//   // }
-
-
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <EstateTypeForm/>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: "#455a64",
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center"
-//   },
-//   signupTextCont: {
-//     flexGrow: 1,
-//     alignItems: "flex-end",
-//     justifyContent: "center",
-//     paddingVertical: 16,
-//     flexDirection: "row"
-//   },
-//   signupText: {
-//     color: "rgba(255,255,255,0.6)",
-//     fontSize: 16
-//   },
-//   signupButton: {
-//     color: "#ffffff",
-//     fontSize: 16,
-//     fontWeight: "500"
-//   }
-// });
-
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -67,6 +10,8 @@ import {
 } from "react-native";
 
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
+
+import { InputAutoSuggest } from 'react-native-autocomplete-search';
 
 export default class Announcement extends Component {
   constructor(props) {
@@ -112,7 +57,8 @@ export default class Announcement extends Component {
       },
       body: JSON.stringify({
         announcementMessage: this.state.announcement,
-        createBy:"string",        announcementRecieverId: this.state.recieverId,
+        createBy:"string",       
+       announcementRecieverId: this.state.recieverId,
 
       }),
     
@@ -134,6 +80,9 @@ export default class Announcement extends Component {
   }
   render() {
     return (
+
+
+      
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.container}>
           <TextInput

@@ -9,6 +9,8 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 import { CheckBox } from "react-native-elements";
+import DatePicker from "react-native-datepicker";
+
 
 var DismissKeyboard = require("dismissKeyboard"); // Require React Native's utility library.
 
@@ -43,7 +45,7 @@ export default class DeliveryItem extends Component {
         itemHostname: this.state.itemHostname,
         createBy: "abhishek",
         itemStatus: this.state.itemStatus,
-        itemDateReceive: this.state.itemDateReceive,
+        itemDateReceive: this.state.date,
         itemDescription: this.state.itemDescription,
         itemType: this.state.itemType
       })
@@ -95,15 +97,30 @@ export default class DeliveryItem extends Component {
             onChangeText={text => this.updateValue(text, "itemDescription")}
           />
 
-          <TextInput
-            style={styles.inputBox}
-            underlineColorAndroid="rgba(0,0,0,0)"
-            placeholder="Item Date Receive"
-            secureTextEntry={true}
-            placeholderTextColor="#ffffff"
-            onChangeText={text => this.updateValue(text, "itemDateReceive")}
-            // ref={input => (this.password = input)}
+          <DatePicker
+            style={{ width: 200 }}
+            date={this.state.date}
+            mode="date"
+            placeholder="Item receive date"
+            format="YYYY-MM-DD"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+                position: "absolute",
+                left: 0,
+                top: 4,
+                marginLeft: 0
+              },
+              dateInput: {
+                marginLeft: 36
+              }
+            }}
+            onDateChange={date => {
+              this.setState({ date: date });
+            }}
           />
+
 
           <TextInput
             style={styles.inputBox}

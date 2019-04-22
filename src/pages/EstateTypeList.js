@@ -66,12 +66,7 @@ export default class EstateTypeList extends React.Component {
   })
 };
 
-  componentDidMount() {
-    return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
 
-  //  this.deleteEstateType = this.deleteEstateType.bind(this);
-  })
-  }
   estatetype() {
     console.log(this.props);
     this.props.navigation.navigate("EstateType");
@@ -80,13 +75,13 @@ export default class EstateTypeList extends React.Component {
   deleteEstateType() {
 
     console.log(this.props)
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
       method: 'GET'
     })
   }
 
   componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/estateTypes/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/estateTypes/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())

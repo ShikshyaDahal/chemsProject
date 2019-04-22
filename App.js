@@ -1,42 +1,3 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  * @flow
-//  */
-
-// import React, { Component } from 'react';
-// import {
-//   StyleSheet,
-//   View,
-//   StatusBar,
-//   TouchableOpacity,
-//   Text 
-// } from 'react-native';
-
-
-// import Routes from './src/Routes';
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <StatusBar
-//            backgroundColor="#1c313a"
-//            barStyle="light-content"
-//          />
-//         <Routes/>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container : {
-//     flex: 1,
-//   }
-// });
-// //This is an example code for NavigationDrawer//
-
 import React, { Component } from "react";
 //import react in our code.
 import { View, Image, TouchableOpacity } from "react-native";
@@ -61,17 +22,18 @@ import Estates from "app/src/pages/Estates";
 import Events from "app/src/pages/Events";
 import EstateTypeList from "app/src/pages/EstateTypeList";
 import EstateType from "app/src/pages/EstateType";
-<<<<<<< HEAD
 import EstateTypeUpdate from "app/src/pages/EstateTypeUpdate";
 import Signup from "app/src/pages/Signup";
 import Dashboard from "app/src/pages/Dashboard";
 import PersonalMessageList from "app/src/pages/PersonalMessageList";
 import PersonalMessage from "app/src/pages/PersonalMessage";
-
-=======
 import AnnouncementList from "app/src/pages/AnnouncementList";
-import Announcement from "app/src/pages/Announcement"
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
+import Announcement from "app/src/pages/Announcement";
+import EstatePlanTypes from "app/src/pages/EstatePlanTypes";
+import Role from "app/src/pages/Role";
+import RoleList from "app/src/pages/RoleList";
+import UserGroup from "app/src/pages/UserGroup";
+import EstatePlanTypeList from "app/src/pages/EstatePlanTypeList"
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -112,6 +74,56 @@ const FirstActivity_StackNavigator = createStackNavigator({
   }
 });
 
+//For React Navigation 3.+
+const Role_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  Role: {
+    screen: Role,
+    navigationOptions: ({ navigation }) => ({
+      title: "Role",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
+
+//For React Navigation 3.+
+const RoleList_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  RoleList: {
+    screen: RoleList,
+    navigationOptions: ({ navigation }) => ({
+      title: "RoleList",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
+
+//For React Navigation 3.+
+const UserGroup_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  UserGroup: {
+    screen: UserGroup,
+    navigationOptions: ({ navigation }) => ({
+      title: "User Group",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
 
 //For React Navigation 3.+
 const EstateTypeList_StackNavigator = createStackNavigator({
@@ -131,23 +143,45 @@ const EstateTypeList_StackNavigator = createStackNavigator({
 });
 
 
+//For React Navigation 3.+
+const EstatePlanTypeList_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  EstatePlanTypeList: {
+    screen: EstatePlanTypeList,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Plan Type List",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
 
 //For React Navigation 3.+
-<<<<<<< HEAD
-const personalMessageList_StackNavigator = createStackNavigator({
+const PersonalMessageList_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
-  personalMessageList: {
+  PersonalMessageList: {
     screen: PersonalMessageList,
     navigationOptions: ({ navigation }) => ({
       title: "Messages",
-=======
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
 const AnnouncementList_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   AnnouncementList: {
     screen: AnnouncementList,
     navigationOptions: ({ navigation }) => ({
       title: "Announcement List",
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -159,7 +193,6 @@ const AnnouncementList_StackNavigator = createStackNavigator({
 });
 
 
-<<<<<<< HEAD
 //For React Navigation 3.+
 const PersonalMessage_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -167,7 +200,32 @@ const PersonalMessage_StackNavigator = createStackNavigator({
     screen: PersonalMessage,
     navigationOptions: ({ navigation }) => ({
       title: "Messages",
-=======
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+//For React Navigation 3.+
+const EstatePlanTypes_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  EstatePlanTypes: {
+    screen: EstatePlanTypes,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Plan Types",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
 
 //For React Navigation 3.+
 const Announcement_StackNavigator = createStackNavigator({
@@ -176,7 +234,6 @@ const Announcement_StackNavigator = createStackNavigator({
     screen: Announcement,
     navigationOptions: ({ navigation }) => ({
       title: "Create Announcement",
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
 
       headerStyle: {
@@ -342,21 +399,49 @@ const DrawerNavigatorExample = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: "Dashboard"
     }
+  },RoleList: {
+    //Title
+    screen:RoleList_StackNavigator    ,
+    navigationOptions: {
+      drawerLabel: "Role List"
+    }
+  }, Role: {
+    //Title
+    screen:Role_StackNavigator    ,
+    navigationOptions: {
+      drawerLabel: () => null,
+    }
   },
+
+  UserGroup: {
+    //Title
+    screen:UserGroup_StackNavigator    ,
+    navigationOptions: {
+      drawerLabel: "User Group"
+    }
+  },
+  
   Screen1: {
     //Title
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
-      drawerLabel: "Request"
+      drawerLabel: "Register Complaint"
     }
   },
-
+  
   
   EstateTypeList: {
     //Title
     screen: EstateTypeList_StackNavigator,
     navigationOptions: {
       drawerLabel: "Estate Type"
+    }
+  },
+  EstatePlanTypeList: {
+    //Title
+    screen: EstatePlanTypeList_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Estate Type Plan"
     }
   },
   DeliveryItem: {
@@ -389,7 +474,13 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: "Estate"
     }
   },
-
+  EstatePlanTypes: {
+    //Title
+    screen: EstatePlanTypes_StackNavigator,
+    navigationOptions: {
+      drawerLabel: () => null,
+    }
+  },
   Events: {
     //Title
     screen: Events_StackNavigator,
@@ -397,9 +488,9 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: "Events"
     }
   },
-  personalMessageList: {
+  PersonalMessageList: {
     //Title
-    screen: personalMessageList_StackNavigator,
+    screen: PersonalMessageList_StackNavigator,
     navigationOptions: {
       drawerLabel: "Messages"
     }
@@ -410,7 +501,6 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: () => null,
      
     }
-<<<<<<< HEAD
   }, EstateTypeUpdate: {
     screen: EstateTypeUpdate_StackNavigator,
     navigationOptions: {
@@ -430,8 +520,8 @@ const DrawerNavigatorExample = createDrawerNavigator({
     screen: PersonalMessage_StackNavigator,
     navigationOptions: {
       drawerLabel: () => null,
-=======
-  },AnnouncementList: {
+  }
+},AnnouncementList: {
     //Title
     screen: AnnouncementList_StackNavigator,
     navigationOptions: {
@@ -440,8 +530,7 @@ const DrawerNavigatorExample = createDrawerNavigator({
   }, Announcement: {
     screen: Announcement_StackNavigator,
     navigationOptions: {
-      drawerLabel: "create Announcement"
->>>>>>> d8257680b5f83157cc8746bf2769aa735d0b783c
+      drawerLabel: () => null,
      
     }
   }

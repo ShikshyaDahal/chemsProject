@@ -10,11 +10,11 @@ export default class PersonalMessageList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true };
-     this.personalmessagecreate = this.personalmessagecreate.bind(this);
+     this.PersonalMessage = this.PersonalMessage.bind(this);
     // this.estatetypelist = this.estatetypelist.bind(this);
   }
 
-  personalmessagecreate() {
+  PersonalMessage() {
     console.log(this.props);
     this.props.navigation.navigate("PersonalMessage");
   }
@@ -105,7 +105,7 @@ export default class PersonalMessageList extends React.Component {
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.message}, {item.estateTypeName}
+            renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text > {item.message}
             </Text></View></View>
               
               }

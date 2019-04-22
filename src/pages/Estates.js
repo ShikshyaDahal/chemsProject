@@ -9,13 +9,8 @@ import {
 
 import EstatesForm from "../components/EstatesForm";
 
-import { Actions } from "react-native-router-flux";
 
 export default class Estates extends Component {
-  // signup() {
-  // 	Actions.signup()
-  // }
-
   render() {
     return (
       <View style={styles.container}>

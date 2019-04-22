@@ -19,7 +19,7 @@ export default class AnnouncementList extends React.Component {
   }
 
   componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/announcements/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/announcements/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
