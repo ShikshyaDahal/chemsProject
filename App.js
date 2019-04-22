@@ -161,11 +161,7 @@ const EstatePlanTypeList_StackNavigator = createStackNavigator({
 
 
 //For React Navigation 3.+
-<<<<<<< HEAD
 const PersonalMessageList_StackNavigator = createStackNavigator({
-=======
-const personalMessageList_StackNavigator = createStackNavigator({
->>>>>>> 4b931ed10eaa806b4ffb6373f99b35ff764e3d93
   //All the screen from the Screen2 will be indexed here
   PersonalMessageList: {
     screen: PersonalMessageList,
@@ -213,6 +209,24 @@ const PersonalMessage_StackNavigator = createStackNavigator({
     })
   }
 });
+//For React Navigation 3.+
+const EstatePlanTypes_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  EstatePlanTypes: {
+    screen: EstatePlanTypes,
+    navigationOptions: ({ navigation }) => ({
+      title: "Estate Plan Types",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
+
 //For React Navigation 3.+
 const Announcement_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
