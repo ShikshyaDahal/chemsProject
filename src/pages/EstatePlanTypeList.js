@@ -78,19 +78,23 @@ export default class EstatePlanTypeList extends React.Component {
 }
 var styles1 = StyleSheet.create({
   container: {
-    backgroundColor:'#3fffff',
-    
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent:'space-between',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#d6d7da',
+    backgroundColor: '#bed6cb',
+
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   halfHeight: {
-      flex: 1,
-      
+    flex: 1,
+    height:60
+
   },
   quarterHeight: {
-      flex: 1,
-        }
+    flex: 1,
+  }
 });
 const styles = StyleSheet.create({
   container: {

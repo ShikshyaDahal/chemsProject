@@ -19,7 +19,7 @@ export default class UserGroupList extends React.Component {
   }
 
   componentDidMount() {
-    return fetch('http://192.41.170.207:8080/WebAPI/api/UserGroups/findAll', {
+    return fetch('http://192.168.42.171:8080/WebAPI/api/usergroup/findAll', {
       method: 'GET'
     })
       .then((response) => response.json())
@@ -54,8 +54,8 @@ export default class UserGroupList extends React.Component {
       <View >
         <View>
           <Button  onPress={this.UserGroup}
-          title = "Add UserGroup">
-          <Text style={styles.signupButton}>Add UserGroup</Text></Button>
+          title = "Add User Group">
+          <Text style={styles.signupButton}>Add User Group</Text></Button>
         </View>
         <View>
           <FlatList
@@ -73,19 +73,23 @@ export default class UserGroupList extends React.Component {
 }
 var styles1 = StyleSheet.create({
   container: {
-    backgroundColor:'#3fffff',
-    
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent:'space-between',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#d6d7da',
+    backgroundColor: '#bed6cb',
+
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   halfHeight: {
-      flex: 1,
-      
+    flex: 1,
+    height:60
+
   },
   quarterHeight: {
-      flex: 1,
-        }
+    flex: 1,
+  }
 });
 const styles = StyleSheet.create({
   container: {

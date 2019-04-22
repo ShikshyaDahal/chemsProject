@@ -33,7 +33,9 @@ import EstatePlanTypes from "app/src/pages/EstatePlanTypes";
 import Role from "app/src/pages/Role";
 import RoleList from "app/src/pages/RoleList";
 import UserGroup from "app/src/pages/UserGroup";
-import EstatePlanTypeList from "app/src/pages/EstatePlanTypeList"
+import UserGroupList from "app/src/pages/UserGroupList";
+import EstatePlanTypeList from "app/src/pages/EstatePlanTypeList";
+import BookResource from "app/src/pages/BookResources";
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -55,6 +57,9 @@ class NavigationDrawerStructure extends Component {
   }
 }
 
+const AuthStack = createStackNavigator({ SignIn: Login }, { headerMode: 'none' });
+const SignupStack = createStackNavigator({ SignUp: Signup }, { headerMode: 'none' });
+
 //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
 //const FirstActivity_StackNavigator = StackNavigator({
 
@@ -64,7 +69,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
   First: {
     screen: Request,
     navigationOptions: ({ navigation }) => ({
-      title: "Request",
+      title: "Register Compaint",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: "#4A4C4F"
@@ -73,6 +78,23 @@ const FirstActivity_StackNavigator = createStackNavigator({
     })
   }
 });
+
+
+const UserGroupList_StackNavigator = createStackNavigator({
+  //All the screen from the Screen1 will be indexed here
+  UserGroupList: {
+    screen: UserGroupList,
+    navigationOptions: ({ navigation }) => ({
+      title: "User Group List",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
+
 
 //For React Navigation 3.+
 const Role_StackNavigator = createStackNavigator({
@@ -97,7 +119,7 @@ const RoleList_StackNavigator = createStackNavigator({
   RoleList: {
     screen: RoleList,
     navigationOptions: ({ navigation }) => ({
-      title: "RoleList",
+      title: "Role List",
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: "#4A4C4F"
@@ -294,6 +316,23 @@ const EstateTypeUpdate_StackNavigator = createStackNavigator({
     })
   }
 });
+
+
+const BookResource_StackNavigator = createStackNavigator({
+  //All the screen from the Screen2 will be indexed here
+  BookResource: {
+    screen: BookResource,
+    navigationOptions: ({ navigation }) => ({
+      title: "Book Resource",
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: "#4A4C4F"
+      },
+      headerTintColor: "#fff"
+    })
+  }
+});
 //For React Navigation 3.+
 const DeliveryItem_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
@@ -411,14 +450,20 @@ const DrawerNavigatorExample = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: () => null,
     }
+  }, UserGroupList: {
+    //Title
+    screen:UserGroupList_StackNavigator    ,
+    navigationOptions: {
+      drawerLabel: "User Group List"
+    }
   },
 
   UserGroup: {
     //Title
     screen:UserGroup_StackNavigator    ,
     navigationOptions: {
-      drawerLabel: "User Group"
-    }
+      drawerLabel: () => null,
+       }
   },
   
   Screen1: {
@@ -458,7 +503,13 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: "Survey"
     }
   },
-
+  BookResource: {
+    //Title
+    screen:BookResource_StackNavigator,
+    navigationOptions: {
+      drawerLabel: "Book Resource"
+    }
+  },
   MarketPlace: {
     //Title
     screen: MarketPlace_StackNavigator,
@@ -533,13 +584,18 @@ const DrawerNavigatorExample = createDrawerNavigator({
       drawerLabel: () => null,
      
     }
-  }
+  },
+  Logout: {
+    //Title
+    screen: AuthStack,
+    navigationOptions: {
+      drawerLabel: "Log out"
+    }
+  },
 });
 
 
 
-const AuthStack = createStackNavigator({ SignIn: Login }, { headerMode: 'none' });
-const SignupStack = createStackNavigator({ SignUp: Signup }, { headerMode: 'none' });
 
 export default createAppContainer(createSwitchNavigator(
   {

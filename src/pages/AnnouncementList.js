@@ -3,7 +3,7 @@ import {
   StyleSheet,
   FlatList, ActivityIndicator, Text, View
 } from 'react-native';
-import { Button, TouchableOpacity,TouchableHighlight } from 'react-native-elements';
+import { Button, TouchableOpacity, TouchableHighlight } from 'react-native-elements';
 
 export default class AnnouncementList extends React.Component {
 
@@ -11,9 +11,9 @@ export default class AnnouncementList extends React.Component {
     super(props);
     this.state = { isLoading: true };
     this.announcement = this.announcement.bind(this);
-    }
+  }
 
-    announcement() {
+  announcement() {
     console.log(this.props);
     this.props.navigation.navigate("Announcement");
   }
@@ -53,17 +53,17 @@ export default class AnnouncementList extends React.Component {
     return (
       <View >
         <View>
-          <Button  onPress={this.announcement}
-          title = "Add announcement">
-          <Text style={styles.signupButton}>Add announcement</Text></Button>
+          <Button onPress={this.announcement}
+            title="Add announcement">
+            <Text style={styles.signupButton}>Add announcement</Text></Button>
         </View>
         <View>
           <FlatList
             data={this.state.dataSource}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => <View style={styles1.container}><View style={styles1.halfHeight}><Text >{item.announcementMessage}</Text></View><View style={styles1.quarterHeight}>
-               </View></View>
-              }
+            </View></View>
+            }
           />
         </View>
 
@@ -73,19 +73,23 @@ export default class AnnouncementList extends React.Component {
 }
 var styles1 = StyleSheet.create({
   container: {
-    backgroundColor:'#3fffff',
-    
-      flex: 1,
-      flexDirection: 'row',
-      justifyContent:'space-between',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#d6d7da',
+    backgroundColor: '#bed6cb',
+
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   halfHeight: {
-      flex: 1,
-      
+    flex: 1,
+    height:60
+
   },
   quarterHeight: {
-      flex: 1,
-        }
+    flex: 1,
+  }
 });
 const styles = StyleSheet.create({
   container: {
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
     marginVertical: 10
   },
   button: {
-    height:10,
+    height: 10,
     width: 30,
     backgroundColor: "#1c313a",
     borderRadius: 25,
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontWeight: "500",
+      fontWeight: "500",
     color: "#ffffff",
     textAlign: "center"
   },
@@ -123,16 +127,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500'
   },
-  b1:{
+  b1: {
     borderWidth: 1,
-      padding: 25,
-      borderColor: 'black',
-      backgroundColor: 'red'
+    padding: 25,
+    borderColor: 'black',
+    backgroundColor: 'red'
   },
   text: {
     borderWidth: 1,
     padding: 25,
     borderColor: 'black',
     backgroundColor: 'red'
- }
+  }
 });

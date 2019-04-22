@@ -83,8 +83,6 @@ export default class UserGroup extends Component {
             placeholder="Insert group name"
             placeholderTextColor="#ffffff"
             onChangeText={text => this.updateValue(text, "UserGroup")}
-
-            // ref={input => (this.password = input)}
           />
 
 
